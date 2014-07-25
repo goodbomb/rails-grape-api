@@ -17,17 +17,15 @@ All API controller files are located in the ```app/api``` directory. The applica
 ------ api.rb
 ```
 
+The ```defaults.rb``` file is where all common configuration is done for the API.
+
 ### Core Components / Gems
 
-Ruby v2.1.2
-
-Rails v4.1.1
-
-Grape
-
-Grape-Entities
-
-Seedbank
+- Ruby v2.1.2
+- Rails v4.1.1
+- Grape
+- Grape-Entities
+- Seedbank
 
 ### API Notes
 
