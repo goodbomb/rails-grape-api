@@ -20,12 +20,17 @@ All API controller files are located in the ```app/api``` directory. The applica
 ### Core Components / Gems
 
 Ruby v2.1.2
+
 Rails v4.1.1
+
 Grape
+
 Grape-Entities
+
 Seedbank
 
 ### API Notes
 
 https://github.com/Apipie/apipie-rails
+
 Apipie is included in the Gemfile but commented out. It is included for the eventual documentation of the API.
