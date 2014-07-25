@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :user, :controllers => { :registrations => 'users' }
   root 'welcome#index'
-  mount API => '/'
+  mount API::Root => '/'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

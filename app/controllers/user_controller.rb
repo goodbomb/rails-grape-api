@@ -1,11 +1,16 @@
 class UserController < ApplicationController
-	def index
-		# @users = User.all
-		# render json: @users
-	end
-
-	def show
-		# @user = User.find(params[:id])
-		# render json: @user
+	before_filter :configure_permitted_parameters
+ 
+	protected
+	
+	def configure_permitted_parameters
+		devise_parameter_sanitizer.for(:sign_up) do |u|
+		  u.permit(:first_name, :last_name, 
+		    :email, :password, :password_confirmation)
+		end
+		devise_parameter_sanitizer.for(:account_update) do |u|
+		  u.permit(:first_name, :last_name, 
+		    :email, :password, :password_confirmation, :current_password)
+		end
 	end
 end
