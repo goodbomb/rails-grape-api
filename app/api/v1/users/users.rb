@@ -20,22 +20,22 @@ module V1
 				desc "Create a New User"
 				post do
 					@user = User.new
-					@user.title = params[:title] if params[:title]
-					@user.description = params[:description] if params[:description]
+					@user.first_name = params[:first_name] if params[:first_name]
+					@user.last_name = params[:last_name] if params[:last_name]
 					@user.save 
 
 					status 201
-				#	present @user, with: User::Entities::Users
+					present @user, with: User::Entities::Users
 				end
 
 				desc "Update a single user"
 				put ':id' do
 					@user = User.find(params[:id])
-					@user.title = params[:title] if params[:title]
-					@user.description = params[:description] if params[:description]
+					@user.first_name = params[:first_name] if params[:first_name]
+					@user.last_name = params[:last_name] if params[:last_name]
 					@user.save
 
-				#	present @user, with: User::Entities::Users
+					present @user, with: User::Entities::Users
 				end
 
 				desc "Delete a single user"
