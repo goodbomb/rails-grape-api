@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :user, :controllers => { :registrations => 'users' }
+  devise_for :user, skip: [:sessions], :controllers => { :registrations => 'user/registrations', :sessions => 'user/sessions' }
+  as :user do
+    post '/user/login' => 'user/sessions#create'
+    delete '/user/logout' => 'user/sessions#destroy'
+  end
+
   root 'welcome#index'
   mount API::Root => '/'
 

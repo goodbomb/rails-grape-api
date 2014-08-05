@@ -1,6 +1,6 @@
 module V1
 	module Users
-		class Users < Grape::API
+		class Users < V1::Base
 			include V1::Defaults
 
 			resource :users do

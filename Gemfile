@@ -27,6 +27,8 @@ group :default do
 	### API Gems ###
 	gem 'grape'
 	gem 'grape-entity'
+	# Rack Middleware for handling Cross-Origin Resource Sharing (CORS)
+	gem 'rack-cors', :require => 'rack/cors'
 	# API Documentation Library
 #	gem 'apipie-rails'
 end
