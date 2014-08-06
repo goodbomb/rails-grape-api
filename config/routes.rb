@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   as :user do
     post '/user/login' => 'user/sessions#create'
     delete '/user/logout' => 'user/sessions#destroy'
+    post '/user/signup' => 'user/registrations#create'
   end
 
   root 'welcome#index'

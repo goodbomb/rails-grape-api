@@ -1,6 +1,6 @@
-module V1
-	module Users
-		class Users < V1::Base
+# module V1
+# 	module Users
+		class V1::Users::Users < V1::Base
 			include V1::Defaults
 
 			resource :users do
@@ -45,7 +45,7 @@ module V1
 			end
 
 		end # End Class
-	end
-end
+# 	end
+# end
 
 # Example: https://github.com/bloudraak/grape-sample-blog-api-with-entities/blob/master/app/api/blog/api.rb
