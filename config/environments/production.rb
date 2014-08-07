@@ -66,6 +66,25 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Required for Devise gem. Make sure to change the host to your production URL.
+  # Required for Devise gem. Make sure to change the host to your production URL (ex: 'yoursite.herokuapp.com')
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  
+  # If a "ActionView::Template::Error:" is displayed when deploying to heroku, uncomment and configure the following line:
+  # Rails.application.routes.default_url_options[:host] = 'yoursite.herokuapp.com'
+
+  # Email configuration settings
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    address:              ENV["EMAIL_SERVER"],
+    port:                 587,
+    domain:               ENV["EMAIL_DOMAIN"],
+    user_name:            ENV["EMAIL_USERNAME"],
+    password:             ENV["EMAIL_PASSWORD"],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 end

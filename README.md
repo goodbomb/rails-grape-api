@@ -29,16 +29,9 @@ The ```defaults.rb``` file is where all common configuration is done for the API
 
 
 ### Installation Notes
-1) Be sure to uncomment the following lines in the ```.gitignore``` file:
+1) Make sure to install the Figaro gem (included in the Gemfile) by running ```rails generate figaro:install``` in terminal. (Refer to the v0.7.0 README for more info regarding this version of Figaro: https://github.com/laserlemon/figaro/tree/0-stable - if you are using a later version of Figaro, refer to the main github README: https://github.com/laserlemon/figaro). The newly generated ```application.yml``` will be added to your ```.gitignore``` file and environment variables should be specific to the development environment.
 
-```
-# config/initializers/secret_token.rb
-# config/secrets.yml
-```
-
-2) Make sure to install the Figaro gem (included in the Gemfile) by running ```rails generate figaro:install``` in terminal. (Refer to the v0.7.0 README for more info regarding this version of Figaro: https://github.com/laserlemon/figaro/tree/0-stable - if you are using a later version of Figaro, refer to the main github README: https://github.com/laserlemon/figaro)
-
-3) After installation you can generate secret keys using the rake generator ```rake secret```. Then you will want to add environment specific secrets to your ```config/application.yml``` file like so:
+2) After installation you can generate secret keys using the rake generator ```rake secret```. Then you will want to add environment specific secrets to your ```config/application.yml``` file like so:
 
 ```
 development:
@@ -49,6 +42,28 @@ production:
   secret_key: "abc123"
 ```
 
+NOTE: Production apps won't make use of the variables set in figaro, so there's not much point in setting them.
+
+
+3) You will also want to configure the Devise mailer variables for email notifications (for registration and password reset). In your ```application.yml``` file, add the following variables:
+
+```
+EMAIL_SERVER: 	"smtp.example.com"
+EMAIL_DOMAIN: 	"example.com"
+EMAIL_USERNAME: "username@example.com" # Username is sometimes not an email address
+EMAIL_PASSWORD: "password12345"
+
+# The following paths should be set to your front end framework's URL (ie: AngularJS).
+ACCOUNT_CONFIRMATION_PATH: "http://localhost:5000/"
+RESET_PASSWORD_PATH: "http://localhost:5000/"
+```
+
+When deploying to the production environment (namely Heroku), you can add these environment variables with the following command:
+
+```
+heroku config:add EMAIL_SERVER=smtp.example.com EMAIL_DOMAIN=example.com EMAIL_USERNAME=username@example.com EMAIL_PASSWORD=password12345
+```
+
 
 ### API Notes
 
@@ -56,4 +71,4 @@ https://github.com/Apipie/apipie-rails
 
 Apipie is included in the Gemfile but commented out. It is included for the eventual documentation of the API.
 
-To see all API routes, run the following commend in terminal from your application directory: ```rake api:routes```
+To see all API routes, run the following command in terminal from your application directory: ```rake api:routes```

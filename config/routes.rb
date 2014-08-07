@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :user, skip: [:sessions], :controllers => { :registrations => 'user/registrations', :sessions => 'user/sessions' }
+  devise_for  :user, 
+            #  skip: [:sessions], 
+              controllers: { 
+                registrations:  'user/registrations', 
+                sessions:       'user/sessions',
+                passwords:      'user/passwords',
+                confirmations:  'user/confirmations'
+              }
   as :user do
     post '/user/login' => 'user/sessions#create'
     delete '/user/logout' => 'user/sessions#destroy'
