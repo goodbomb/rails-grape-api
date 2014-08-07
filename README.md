@@ -26,7 +26,7 @@ API_URL + '/user/signup'
 API_URL + '/user/login'
 ```
 
-New accounts are sent an email with a confirmation URL that confirms the account at an API URL and then redirects back to a defined path. Overwritten Devise controllers can be found in the ```app/controllers/user/``` directory.
+New accounts are sent an email with a confirmation URL that confirms the account and immediately redirect the user back to a defined path (specified in local environment variables - see section 3 for Installation Notes). Overwritten Devise controllers can be found in the ```app/controllers/user/``` directory.
 
 ### Core Components / Gems
 
