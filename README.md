@@ -19,6 +19,15 @@ All API controller files are located in the ```app/api``` directory. The applica
 
 The ```defaults.rb``` file is where all common configuration is done for the API (including HTTP Headers).
 
+The Devise gem is used for user registration and authentication. The following paths are set up for JSON requests through devise:
+
+```
+API_URL + '/user/signup'
+API_URL + '/user/login'
+```
+
+New accounts are sent an email with a confirmation URL that confirms the account at an API URL and then redirects back to a defined path. Overwritten Devise controllers can be found in the ```app/controllers/user/``` directory.
+
 ### Core Components / Gems
 
 - Ruby v2.1.2
