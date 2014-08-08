@@ -10,14 +10,14 @@ class User::ConfirmationsController < Devise::ConfirmationsController
 			    after_confirmation_path_for(resource_name, resource) }
 		else
 			flash[:notice] = "Your account is already confirmed. Please login."
-			redirect_to ENV["ACCOUNT_CONFIRMATION_PATH"]
+			redirect_to ENV["FRONT_END_BASE_URL"] + 'auth/login'
 		end
 	end
 
 	protected
-	# Redirect to ACCOUNT_CONFIRMATION_PATH on confirmation
+	# Redirect to FRONT_END_BASE_URL on confirmation
 	def after_confirmation_path_for(resource_name, resource)
-		ENV["ACCOUNT_CONFIRMATION_PATH"]
+		ENV["FRONT_END_BASE_URL"] + 'auth/login'
 	end
 
 end

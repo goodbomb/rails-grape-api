@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable, :confirmable, 
 	       :recoverable, :rememberable, :trackable, :validatable
 
+	class Roles < User
+		ROLES = [ "admin", "user" ]
+	end
+
 	def ensure_authentication_token
 		self.authentication_token = generate_authentication_token
 		self.save!

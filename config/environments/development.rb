@@ -23,7 +23,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Required for Devise mailer
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: ENV["API_BASE_URL"] }
 
   # Raise an exception if there is an error when sending an email
   config.action_mailer.raise_delivery_errors = true

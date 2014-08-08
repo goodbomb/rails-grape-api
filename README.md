@@ -62,15 +62,15 @@ EMAIL_DOMAIN: 	"example.com"
 EMAIL_USERNAME: "username@example.com" # Username is sometimes not an email address
 EMAIL_PASSWORD: "password12345"
 
-# The following paths should be set to your front end framework's URL (ie: AngularJS).
-ACCOUNT_CONFIRMATION_PATH: "http://localhost:5000/"
-RESET_PASSWORD_PATH: "http://localhost:5000/"
+# The following variable should be set to your front end framework's URL (ie: AngularJS).
+FRONT_END_BASE_URL: "http://localhost:5000/" # Trailing slash is important!!
+API_BASE_URL: "http://localhost:3000/"
 ```
 
 When deploying to the production environment (namely Heroku), you can add these environment variables with the following command:
 
 ```
-heroku config:add EMAIL_SERVER=smtp.example.com EMAIL_DOMAIN=example.com EMAIL_USERNAME=username@example.com EMAIL_PASSWORD=password12345
+heroku config:add EMAIL_SERVER=smtp.example.com EMAIL_DOMAIN=example.com EMAIL_USERNAME=username@example.com EMAIL_PASSWORD=password12345 FRONT_END_BASE_URL=http://localhost:5000/ API_BASE_URL=http://localhost:3000/
 ```
 
 
