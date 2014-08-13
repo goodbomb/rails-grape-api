@@ -24,7 +24,7 @@ module V1::Defaults
 
     # HTTP header based authentication
     # before do
-    #   error!('Unauthorized', 401) unless headers['Authorization'] == "some token"
+    #   error!('Unauthorized', 401) unless headers['HTTP_SECRET_KEY'] == env['HTTP_SECRET_KEY']
     # end
   end
 end

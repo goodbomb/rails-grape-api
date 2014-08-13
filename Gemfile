@@ -22,6 +22,8 @@ group :default do
 	gem 'paperclip-dropbox', '>= 1.1.7'
 	# Simple Rails app configuration.
 	gem 'figaro'
+	# Global - Provides accessor methods for your configuration data
+	gem 'global'
 	# Generate Database SEED data for multiple environments
 	gem 'seedbank'
 	### API Gems ###

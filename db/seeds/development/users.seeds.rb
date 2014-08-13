@@ -1,5 +1,3 @@
-require 'faker'
-
 20.times do
 	admin = User.create do |u|
 		u.role = User::Roles::ROLES[1]

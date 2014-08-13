@@ -8,6 +8,17 @@ class User < ActiveRecord::Base
 		ROLES = [ "admin", "user" ]
 	end
 
+	# Soft Delete user when "destroy" method is called instead of a deleting entire database field
+	def soft_delete
+		update_attribute(:deleted_at, Time.current)
+	end
+
+	# Ensure deleted users cannot sign in
+	def active_for_authentication?
+		super && !deleted_at
+	end
+
+	# Used for user authentication
 	def ensure_authentication_token
 		self.authentication_token = generate_authentication_token
 		self.save!
