@@ -1,6 +1,8 @@
 Rails Grape API
 ===============
 
+***THIS PROJECT IS NO LONGER MAINTAINED. USE AT YOUR OWN RISK.***
+
 Base setup for a Ruby on Rails API using Grape.
 
 All API controller files are located in the ```app/api``` directory. The application structure is meant to be modular and version controlled. The base application API structure looks like this:
